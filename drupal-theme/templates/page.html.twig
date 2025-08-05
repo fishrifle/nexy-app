@@ -1,0 +1,128 @@
+{#
+/**
+ * @file
+ * Second Chance theme's implementation to display a single page.
+ */
+#}
+
+<!-- Platform Selector -->
+<div class="platform-selector">
+  <div class="container">
+    <nav class="platform-nav">
+      <a href="#" class="platform-btn" data-platform="nextjs">Next.js Demo</a>
+      <a href="#" class="platform-btn" data-platform="wordpress">WordPress Demo</a>
+      <a href="#" class="platform-btn active" data-platform="drupal">Drupal Demo</a>
+    </nav>
+  </div>
+</div>
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Second Chance <span class="highlight">Developer Sponsorship</span></h1>
+        <p>Support justice-involved developers on their path to redemption and professional success. Your sponsorship provides mentorship, resources, and opportunities for those rebuilding their lives through code.</p>
+        <div class="hero-actions">
+          <a href="#sponsor" class="btn btn-primary">Sponsor a Developer</a>
+          <a href="#learn-more" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Developer working on computer">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section container" id="learn-more">
+  <div class="features-header">
+    <div class="tag">Impact</div>
+    <h2>Transforming Lives Through Technology</h2>
+    <p>Every sponsorship creates lasting change in someone's life and strengthens our tech community.</p>
+  </div>
+  
+  <div class="features-grid">
+    <div class="feature-item">
+      <div class="feature-icon">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg>
+      </div>
+      <h3>Skill Development</h3>
+      <p>Provide access to coding bootcamps, certifications, and hands-on projects that build real-world skills.</p>
+    </div>
+    
+    <div class="feature-item">
+      <div class="feature-icon">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+      </div>
+      <h3>Mentorship Network</h3>
+      <p>Connect sponsored developers with experienced professionals for guidance and career support.</p>
+    </div>
+    
+    <div class="feature-item">
+      <div class="feature-icon">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6" />
+        </svg>
+      </div>
+      <h3>Job Placement</h3>
+      <p>Partner with employers who value second chances and provide pathways to meaningful employment.</p>
+    </div>
+    
+    <div class="feature-item">
+      <div class="feature-icon">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+        </svg>
+      </div>
+      <h3>Community Support</h3>
+      <p>Build a supportive community of peers and advocates who understand the journey to redemption.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Widget Demo Section -->
+<section class="widget-section container" id="sponsor">
+  <div class="widget-header">
+    <h2>Embeddable Sponsorship Widget</h2>
+    <p class="platform-indicator">Platform: Drupal</p>
+  </div>
+  
+  <div class="widget-container">
+    <div class="widget-preview">
+      <h3>Your Widget Will Appear Here</h3>
+      <div class="widget-content">
+        <h4>Sponsor a Second Chance Developer</h4>
+        <p>Help someone rebuild their life through code</p>
+        <button>Sponsor Now - $50/month</button>
+      </div>
+      <p class="widget-note">This widget can be embedded on any Drupal site</p>
+    </div>
+  </div>
+</section>
+
+<!-- Main Content Area -->
+{% if page.content %}
+  <div class="container">
+    <main class="main-content">
+      {{ page.content }}
+    </main>
+  </div>
+{% endif %}
+
+<!-- Footer -->
+<footer class="footer-section">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-platform">Demo Platform: Drupal</div>
+      <div class="footer-copyright">
+        &copy; 2024 Second Chance Developer Sponsorship. Supporting justice-involved individuals.
+      </div>
+    </div>
+  </div>
+</footer>

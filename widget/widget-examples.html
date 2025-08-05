@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sponsorship Widget Examples</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+            background: #f8fafc;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .header h1 {
+            color: #1a202c;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .header p {
+            color: #718096;
+            font-size: 1.2rem;
+        }
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        .example-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .example-section h3 {
+            color: #2d3748;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        .code-block {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 14px;
+        }
+        .integration-docs {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-top: 40px;
+        }
+        .integration-docs h2 {
+            color: #2d3748;
+            margin-bottom: 30px;
+        }
+        .platform-integration {
+            margin-bottom: 40px;
+        }
+        .platform-integration h4 {
+            color: #4a5568;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Sponsorship Widget Examples</h1>
+            <p>Embeddable widgets for Next.js, WordPress, and Drupal platforms</p>
+        </div>
+
+        <div class="examples-grid">
+            <!-- Default Widget -->
+            <div class="example-section">
+                <h3>Default Widget</h3>
+                <div data-sc-widget="sponsorship"></div>
+            </div>
+
+            <!-- Custom Amount Widget -->
+            <div class="example-section">
+                <h3>Custom Default Amount</h3>
+                <div data-sc-widget="sponsorship" data-amount="100"></div>
+            </div>
+
+            <!-- Minimal Widget -->
+            <div class="example-section">
+                <h3>Minimal Version</h3>
+                <div data-sc-widget="sponsorship" data-theme="minimal" data-amount="25"></div>
+            </div>
+        </div>
+
+        <div class="integration-docs">
+            <h2>Integration Instructions</h2>
+
+            <div class="platform-integration">
+                <h4>📦 Next.js Integration</h4>
+                <p>Add the widget script to your Next.js app:</p>
+                <div class="code-block">// In your component or layout
+import Script from 'next/script'
+
+export default function Layout({ children }) {
+  return (
+    &lt;&gt;
+      {children}
+      &lt;Script src="/widget/sponsorship-widget.js" /&gt;
+    &lt;/&gt;
+  )
+}
+
+// Then use the widget anywhere:
+&lt;div data-sc-widget="sponsorship"&gt;&lt;/div&gt;</div>
+            </div>
+
+            <div class="platform-integration">
+                <h4>🔧 WordPress Integration</h4>
+                <p>Add to your theme's functions.php:</p>
+                <div class="code-block">function enqueue_sponsorship_widget() {
+    wp_enqueue_script(
+        'sponsorship-widget',
+        get_template_directory_uri() . '/js/sponsorship-widget.js',
+        array(),
+        '1.0.0',
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'enqueue_sponsorship_widget');
+
+// Use shortcode in posts/pages:
+[sponsorship_widget amount="50"]
+
+// Or in templates:
+&lt;div data-sc-widget="sponsorship"&gt;&lt;/div&gt;</div>
+            </div>
+
+            <div class="platform-integration">
+                <h4>🌐 Drupal Integration</h4>
+                <p>Add to your theme's .libraries.yml and templates:</p>
+                <div class="code-block"># In your_theme.libraries.yml
+sponsorship-widget:
+  js:
+    js/sponsorship-widget.js: {}
+
+# In your template file:
+{{ attach_library('your_theme/sponsorship-widget') }}
+&lt;div data-sc-widget="sponsorship"&gt;&lt;/div&gt;
+
+# Or create a custom block plugin</div>
+            </div>
+
+            <div class="platform-integration">
+                <h4>⚙️ Widget Options</h4>
+                <div class="code-block">// Available data attributes:
+data-sc-widget="sponsorship"    // Required: Identifies the widget
+data-amount="50"                // Optional: Default amount (25, 50, 100)
+data-currency="$"               // Optional: Currency symbol
+data-frequency="month"          // Optional: Payment frequency
+data-theme="default"            // Optional: Widget theme</div>
+            </div>
+
+            <div class="platform-integration">
+                <h4>🎨 Custom Styling</h4>
+                <p>Override widget styles with CSS:</p>
+                <div class="code-block">/* Customize widget appearance */
+.sc-widget-container {
+    max-width: 300px; /* Make it smaller */
+    --widget-primary-color: #your-color;
+}
+
+.sc-widget-btn-primary {
+    background: var(--widget-primary-color, #667eea);
+}
+
+/* Hide certain elements */
+.sc-widget-footer {
+    display: none;
+}</div>
+            </div>
+
+            <div class="platform-integration">
+                <h4>📱 Responsive Behavior</h4>
+                <p>The widget automatically adapts to different screen sizes and can be embedded in:</p>
+                <ul>
+                    <li>Sidebar widgets</li>
+                    <li>Footer sections</li>
+                    <li>Blog post content</li>
+                    <li>Landing pages</li>
+                    <li>Modal dialogs</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load the widget script -->
+    <script src="sponsorship-widget.js"></script>
+</body>
+</html>

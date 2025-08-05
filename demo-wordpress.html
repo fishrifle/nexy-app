@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Chance Developer Sponsorship - WordPress Demo</title>
+    <link rel="stylesheet" href="/wordpress/style.css">
+</head>
+<body>
+    <!-- Demo Navigation -->
+    <div style="background: #f8f9fa; border-bottom: 1px solid #dee2e6; padding: 15px 0; position: sticky; top: 0; z-index: 1000;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="/" style="color: #6c757d; text-decoration: none;">← Back to Demo Home</a>
+            <div style="display: flex; gap: 15px;">
+                <a href="/nextjs" style="color: #6c757d; text-decoration: none; padding: 8px 16px; border-radius: 6px;">Next.js</a>
+                <span style="background: #007cba; color: white; padding: 8px 16px; border-radius: 6px; font-weight: 600;">WordPress Demo</span>
+                <a href="/drupal" style="color: #6c757d; text-decoration: none; padding: 8px 16px; border-radius: 6px;">Drupal</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Platform Selector -->
+    <div class="platform-selector">
+        <div class="container">
+            <nav class="platform-nav">
+                <button class="platform-btn" onclick="switchPlatform('nextjs')">Next.js Demo</button>
+                <button class="platform-btn active" onclick="switchPlatform('wordpress')">WordPress Demo</button>
+                <button class="platform-btn" onclick="switchPlatform('drupal')">Drupal Demo</button>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Second Chance <span class="highlight">Developer Sponsorship</span></h1>
+                    <p>Support justice-involved developers on their path to redemption and professional success. Your sponsorship provides mentorship, resources, and opportunities for those rebuilding their lives through code.</p>
+                    <div class="hero-actions">
+                        <a href="#sponsor" class="btn btn-primary">Sponsor a Developer</a>
+                        <a href="#learn-more" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1471&q=80" alt="Developer working on computer">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="learn-more">
+        <div class="container">
+            <div class="features-header">
+                <div class="tag">Impact</div>
+                <h2>Transforming Lives Through Technology</h2>
+                <p>Every sponsorship creates lasting change in someone's life and strengthens our tech community.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Skill Development</h3>
+                        <p>Provide access to coding bootcamps, certifications, and hands-on projects that build real-world skills.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Mentorship Network</h3>
+                        <p>Connect sponsored developers with experienced professionals for guidance and career support.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6" />
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Job Placement</h3>
+                        <p>Partner with employers who value second chances and provide pathways to meaningful employment.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Community Support</h3>
+                        <p>Build a supportive community of peers and advocates who understand the journey to redemption.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Widget Demo Section -->
+    <section class="widget-demo" id="sponsor">
+        <div class="container">
+            <div class="widget-demo-header">
+                <h2>Embeddable Sponsorship Widget</h2>
+                <p class="platform-indicator">Platform: WordPress</p>
+            </div>
+            
+            <div style="max-width: 500px; margin: 0 auto 40px;">
+                <div data-sc-widget="sponsorship" data-amount="50"></div>
+            </div>
+            
+            <!-- Integration Code Example -->
+            <div style="max-width: 800px; margin: 0 auto; background: #2d3748; border-radius: 12px; padding: 24px; color: #e2e8f0; font-family: 'Monaco', monospace; font-size: 14px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                    <h3 style="color: white; margin: 0; font-size: 16px;">WordPress Integration</h3>
+                    <span style="color: #a0aec0; font-size: 12px;">PHP + WordPress Hooks</span>
+                </div>
+                <div style="line-height: 1.6;">
+                    <div><span style="color: #68d391;">// functions.php</span></div>
+                    <div><span style="color: #f56565;">function</span> <span style="color: #fbd38d;">enqueue_sponsorship_widget</span>() {</div>
+                    <div>&nbsp;&nbsp;<span style="color: #63b3ed;">wp_enqueue_script</span>(</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #9ae6b4;">'sponsorship-widget'</span>,</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #63b3ed;">get_template_directory_uri</span>() . <span style="color: #9ae6b4;">'/js/widget.js'</span></div>
+                    <div>&nbsp;&nbsp;);</div>
+                    <div>}</div>
+                    <div><span style="color: #63b3ed;">add_action</span>(<span style="color: #9ae6b4;">'wp_enqueue_scripts'</span>, <span style="color: #9ae6b4;">'enqueue_sponsorship_widget'</span>);</div>
+                    <div></div>
+                    <div><span style="color: #68d391;">// Use shortcode: [sponsorship_widget amount="50"]</span></div>
+                    <div><span style="color: #68d391;">// Or in templates: &lt;div data-sc-widget="sponsorship"&gt;&lt;/div&gt;</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-platform">Demo Platform: WordPress</div>
+                <div class="footer-copyright">
+                    &copy; 2024 Second Chance Developer Sponsorship. Supporting justice-involved individuals.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    function switchPlatform(platform) {
+        const platformButtons = document.querySelectorAll('.platform-btn');
+        platformButtons.forEach(btn => btn.classList.remove('active'));
+        
+        event.target.classList.add('active');
+        
+        const platformIndicators = document.querySelectorAll('.platform-indicator, .footer-platform');
+        const platformName = platform === 'nextjs' ? 'Next.js' : platform === 'wordpress' ? 'WordPress' : 'Drupal';
+        
+        platformIndicators.forEach(indicator => {
+            if (indicator.classList.contains('platform-indicator')) {
+                indicator.textContent = `Platform: ${platformName}`;
+            } else {
+                indicator.textContent = `Demo Platform: ${platformName}`;
+            }
+        });
+        
+        if (platform !== 'wordpress') {
+            window.location.href = `/${platform}`;
+        }
+    }
+    </script>
+
+    <!-- Load the widget -->
+    <script src="/widget/sponsorship-widget.js"></script>
+</body>
+</html>

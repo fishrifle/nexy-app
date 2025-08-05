@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Chance Developer Sponsorship - Platform Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .platform-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .platform-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.03"><circle cx="30" cy="30" r="4"/></g></g></svg>');
+            pointer-events: none;
+        }
+        
+        .platform-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .platform-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .platform-card h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .platform-card p {
+            opacity: 0.9;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .demo-btn {
+            background: rgba(255, 255, 255, 0.9);
+            color: #667eea;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .demo-btn:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+        }
+        
+        .widget-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 40px;
+        }
+        
+        .widget-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .widget-section p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .quick-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .quick-link {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .quick-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .platform-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .platform-card {
+                padding: 30px 20px;
+            }
+            
+            .quick-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Second Chance Developer Sponsorship</h1>
+            <p>Experience our embeddable widget across different platforms. Choose a platform below to see how the sponsorship widget integrates seamlessly into each environment.</p>
+        </div>
+        
+        <div class="platform-grid">
+            <div class="platform-card">
+                <div class="platform-icon">⚛️</div>
+                <h3>Next.js Demo</h3>
+                <p>Modern React-based implementation with TypeScript, Tailwind CSS, and responsive design optimized for performance.</p>
+                <a href="/nextjs" class="demo-btn">View Next.js Demo</a>
+            </div>
+            
+            <div class="platform-card">
+                <div class="platform-icon">📰</div>
+                <h3>WordPress Demo</h3>
+                <p>Traditional CMS approach with custom theme, shortcodes, and widget areas for easy content management.</p>
+                <a href="/wordpress" class="demo-btn">View WordPress Demo</a>
+            </div>
+            
+            <div class="platform-card">
+                <div class="platform-icon">🔧</div>
+                <h3>Drupal Demo</h3>
+                <p>Enterprise-level implementation with custom theme, Twig templates, and advanced content architecture.</p>
+                <a href="/drupal" class="demo-btn">View Drupal Demo</a>
+            </div>
+        </div>
+        
+        <div class="widget-section">
+            <h2>Embeddable Widget</h2>
+            <p>Our sponsorship widget works seamlessly across all platforms with just a simple HTML snippet. Customize appearance, amounts, and behavior to match your site.</p>
+            
+            <div class="quick-links">
+                <a href="/widget-examples" class="quick-link">📦 Widget Examples</a>
+                <a href="https://github.com/example/sponsorship-widget" class="quick-link">📚 Documentation</a>
+                <a href="#" class="quick-link">⚡ Live API</a>
+            </div>
+        </div>
+        
+        <div style="text-align: center; opacity: 0.8;">
+            <p>&copy; 2024 Second Chance Developer Sponsorship. Supporting justice-involved individuals on their path to tech careers.</p>
+        </div>
+    </div>
+</body>
+</html>
