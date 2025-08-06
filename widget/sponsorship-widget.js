@@ -56,8 +56,6 @@
     .sc-widget-container {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       max-width: 400px;
-      width: 100%;
-      height: auto;
       margin: 20px auto;
       border-radius: 12px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
@@ -65,7 +63,6 @@
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
       position: relative;
-      display: block;
     }
     
     .sc-widget-container::before {

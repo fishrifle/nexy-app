@@ -141,18 +141,29 @@
                 </p>
             </div>
             
-            <!-- Widget Container -->
-            <div class="mt-8 max-w-md mx-auto">
+            <!-- Widget Container (Initially Hidden) -->
+            <div id="widget-container" class="mt-8 max-w-md mx-auto min-h-0 max-h-96 overflow-hidden" style="display: none;">
                 <div data-sc-widget="sponsorship" data-amount="50"></div>
             </div>
             
             <!-- Demo Button -->
             <div class="mt-8 text-center">
-                <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg">
+                <button id="demo-btn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg" onclick="showWidget()">
                     Sponsor a Developer
                 </button>
                 <p class="mt-2 text-sm text-gray-600">Click to test the widget functionality</p>
             </div>
+            
+            <script>
+                function showWidget() {
+                    const container = document.getElementById('widget-container');
+                    const button = document.getElementById('demo-btn');
+                    container.style.display = 'block';
+                    button.textContent = 'Widget Loaded!';
+                    button.disabled = true;
+                    button.classList.add('opacity-50', 'cursor-not-allowed');
+                }
+            </script>
             
             <!-- Integration Code Example -->
             <div class="mt-8 max-w-4xl mx-auto">

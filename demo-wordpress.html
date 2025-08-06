@@ -118,17 +118,29 @@
                 <p class="platform-indicator">Platform: WordPress</p>
             </div>
             
-            <div style="max-width: 500px; margin: 0 auto 40px;">
+            <div id="widget-container-wp" style="max-width: 500px; max-height: 384px; margin: 0 auto 40px; overflow: hidden; display: none;">
                 <div data-sc-widget="sponsorship" data-amount="50"></div>
             </div>
             
             <!-- Demo Button -->
             <div style="text-align: center; margin: 32px auto;">
-                <button style="background: #7c3aed; color: white; font-weight: bold; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px;">
+                <button id="demo-btn-wp" onclick="showWidgetWP()" style="background: #7c3aed; color: white; font-weight: bold; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px;">
                     Sponsor a Developer
                 </button>
                 <p style="margin-top: 8px; font-size: 14px; color: #666;">Click to test the widget functionality</p>
             </div>
+            
+            <script>
+                function showWidgetWP() {
+                    const container = document.getElementById('widget-container-wp');
+                    const button = document.getElementById('demo-btn-wp');
+                    container.style.display = 'block';
+                    button.textContent = 'Widget Loaded!';
+                    button.disabled = true;
+                    button.style.opacity = '0.5';
+                    button.style.cursor = 'not-allowed';
+                }
+            </script>
             
             <!-- Integration Code Example -->
             <div style="max-width: 800px; max-height: 384px; margin: 0 auto; background: #2d3748; border-radius: 12px; padding: 24px; color: #e2e8f0; font-family: 'Monaco', monospace; font-size: 14px; overflow: hidden;">
