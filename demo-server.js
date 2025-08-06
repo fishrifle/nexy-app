@@ -30,6 +30,15 @@ app.get('/widget-examples', (req, res) => {
   res.sendFile(path.join(__dirname, 'widget', 'widget-examples.html'));
 });
 
+app.get('/docs', (req, res) => {
+  res.sendFile(path.join(__dirname, 'docs.html'));
+});
+
+app.get('/api', (req, res) => {
+  res.sendFile(path.join(__dirname, 'api.html'));
+});
+
+
 app.listen(PORT, () => {
   console.log(`Demo server running at http://localhost:${PORT}`);
   console.log(`\nAvailable demos:`);
