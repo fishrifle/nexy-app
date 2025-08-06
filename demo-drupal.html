@@ -108,7 +108,7 @@
         </div>
         
         <div id="widget-container-drupal" style="max-width: 500px; max-height: 400px; margin: 0 auto 50px; overflow: hidden; display: none;">
-            <div data-sc-widget="sponsorship" data-amount="50"></div>
+            <div id="passiton-donate-widget-drupal"></div>
         </div>
         
         <!-- Demo Button -->
@@ -124,6 +124,17 @@
                 const container = document.getElementById('widget-container-drupal');
                 const button = document.getElementById('demo-btn-drupal');
                 container.style.display = 'block';
+                
+                // Initialize the PassItOn widget
+                if (window.createDonationWidget) {
+                    window.createDonationWidget({
+                        targetElementId: 'passiton-donate-widget-drupal',
+                        organizationId: 'demo-org',
+                        defaultAmount: 50,
+                        buttonText: 'Donate Now'
+                    });
+                }
+                
                 button.textContent = 'Widget Loaded!';
                 button.disabled = true;
                 button.style.opacity = '0.5';
@@ -141,11 +152,17 @@
                 <div><span style="color: #68d391;"># your_theme.libraries.yml</span></div>
                 <div><span style="color: #fbd38d;">sponsorship-widget</span>:</div>
                 <div>&nbsp;&nbsp;<span style="color: #63b3ed;">js</span>:</div>
-                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #9ae6b4;">js/sponsorship-widget.js</span>: {}</div>
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #9ae6b4;">https://donation-one-phi.vercel.app/embed.js</span>: {}</div>
                 <div></div>
                 <div><span style="color: #68d391;"># In your template:</span></div>
                 <div><span style="color: #f687b3;">{{</span> <span style="color: #63b3ed;">attach_library</span>(<span style="color: #9ae6b4;">'your_theme/sponsorship-widget'</span>) <span style="color: #f687b3;">}}</span></div>
-                <div><span style="color: #cbd5e0;">&lt;div</span> <span style="color: #fbd38d;">data-sc-widget</span>=<span style="color: #9ae6b4;">"sponsorship"</span><span style="color: #cbd5e0;">&gt;&lt;/div&gt;</span></div>
+                <div><span style="color: #cbd5e0;">&lt;div</span> <span style="color: #fbd38d;">id</span>=<span style="color: #9ae6b4;">"passiton-donate-widget"</span><span style="color: #cbd5e0;">&gt;&lt;/div&gt;</span></div>
+                <div></div>
+                <div><span style="color: #68d391;"># Initialize widget:</span></div>
+                <div><span style="color: #fbd38d;">createDonationWidget</span>({</div>
+                <div>&nbsp;&nbsp;<span style="color: #9ae6b4;">targetElementId: 'passiton-donate-widget'</span>,</div>
+                <div>&nbsp;&nbsp;<span style="color: #9ae6b4;">organizationId: 'your-org-id'</span></div>
+                <div>});</div>
                 <div></div>
                 <div><span style="color: #68d391;"># Or create a custom block plugin</span></div>
                 <div><span style="color: #f56565;">class</span> <span style="color: #fbd38d;">SponsorshipBlock</span> <span style="color: #f56565;">extends</span> <span style="color: #63b3ed;">BlockBase</span> {</div>
@@ -224,6 +241,6 @@
     </script>
 
     <!-- Load the widget -->
-    <script src="/widget/sponsorship-widget.js"></script>
+    <script src="https://donation-one-phi.vercel.app/embed.js"></script>
 </body>
 </html>

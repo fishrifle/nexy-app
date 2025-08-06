@@ -119,7 +119,7 @@
             </div>
             
             <div id="widget-container-wp" style="max-width: 500px; max-height: 384px; margin: 0 auto 40px; overflow: hidden; display: none;">
-                <div data-sc-widget="sponsorship" data-amount="50"></div>
+                <div id="passiton-donate-widget-wp"></div>
             </div>
             
             <!-- Demo Button -->
@@ -135,6 +135,17 @@
                     const container = document.getElementById('widget-container-wp');
                     const button = document.getElementById('demo-btn-wp');
                     container.style.display = 'block';
+                    
+                    // Initialize the PassItOn widget
+                    if (window.createDonationWidget) {
+                        window.createDonationWidget({
+                            targetElementId: 'passiton-donate-widget-wp',
+                            organizationId: 'demo-org',
+                            defaultAmount: 50,
+                            buttonText: 'Donate Now'
+                        });
+                    }
+                    
                     button.textContent = 'Widget Loaded!';
                     button.disabled = true;
                     button.style.opacity = '0.5';
@@ -150,16 +161,23 @@
                 </div>
                 <div style="line-height: 1.6;">
                     <div><span style="color: #68d391;">// functions.php</span></div>
-                    <div><span style="color: #f56565;">function</span> <span style="color: #fbd38d;">enqueue_sponsorship_widget</span>() {</div>
+                    <div><span style="color: #f56565;">function</span> <span style="color: #fbd38d;">enqueue_passiton_widget</span>() {</div>
                     <div>&nbsp;&nbsp;<span style="color: #63b3ed;">wp_enqueue_script</span>(</div>
-                    <div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #9ae6b4;">'sponsorship-widget'</span>,</div>
-                    <div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #63b3ed;">get_template_directory_uri</span>() . <span style="color: #9ae6b4;">'/js/widget.js'</span></div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #9ae6b4;">'passiton-widget'</span>,</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #9ae6b4;">'https://donation-one-phi.vercel.app/embed.js'</span>,</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;[], <span style="color: #9ae6b4;">'1.0'</span>, <span style="color: #fbd38d;">true</span></div>
                     <div>&nbsp;&nbsp;);</div>
                     <div>}</div>
-                    <div><span style="color: #63b3ed;">add_action</span>(<span style="color: #9ae6b4;">'wp_enqueue_scripts'</span>, <span style="color: #9ae6b4;">'enqueue_sponsorship_widget'</span>);</div>
+                    <div><span style="color: #63b3ed;">add_action</span>(<span style="color: #9ae6b4;">'wp_enqueue_scripts'</span>, <span style="color: #9ae6b4;">'enqueue_passiton_widget'</span>);</div>
                     <div></div>
-                    <div><span style="color: #68d391;">// Use shortcode: [sponsorship_widget amount="50"]</span></div>
-                    <div><span style="color: #68d391;">// Or in templates: &lt;div data-sc-widget="sponsorship"&gt;&lt;/div&gt;</span></div>
+                    <div><span style="color: #68d391;">// Add widget container:</span></div>
+                    <div><span style="color: #68d391;">&lt;div id="passiton-donate-widget"&gt;&lt;/div&gt;</span></div>
+                    <div></div>
+                    <div><span style="color: #68d391;">// Initialize widget:</span></div>
+                    <div><span style="color: #fbd38d;">createDonationWidget</span>({</div>
+                    <div>&nbsp;&nbsp;<span style="color: #9ae6b4;">targetElementId: 'passiton-donate-widget'</span>,</div>
+                    <div>&nbsp;&nbsp;<span style="color: #9ae6b4;">organizationId: 'your-org-id'</span></div>
+                    <div>});</div>
                 </div>
             </div>
         </div>
@@ -202,6 +220,6 @@
     </script>
 
     <!-- Load the widget -->
-    <script src="/widget/sponsorship-widget.js"></script>
+    <script src="https://donation-one-phi.vercel.app/embed.js"></script>
 </body>
 </html>
