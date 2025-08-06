@@ -160,15 +160,19 @@
                     const button = document.getElementById('demo-btn');
                     container.style.display = 'block';
                     
-                    // Initialize the PassItOn widget
-                    if (window.createDonationWidget) {
-                        window.createDonationWidget({
-                            targetElementId: 'passiton-donate-widget',
-                            organizationId: 'demo-org',
-                            defaultAmount: 50,
-                            buttonText: 'Donate Now'
-                        });
-                    }
+                    // Configure and initialize the PassItOn widget
+                    window.PassItOnConfig = {
+                        targetElementId: 'passiton-donate-widget',
+                        organizationId: 'demo-org',
+                        defaultAmount: 50,
+                        buttonText: 'Donate Now',
+                        color: '#3b82f6'
+                    };
+                    
+                    // Reload the script to initialize with new config
+                    const script = document.createElement('script');
+                    script.src = 'https://donation-one-phi.vercel.app/embed.js';
+                    document.head.appendChild(script);
                     
                     button.textContent = 'Widget Loaded!';
                     button.disabled = true;
@@ -195,12 +199,13 @@
                         <div><span class="text-gray-500">// Add widget container:</span></div>
                         <div><span class="text-gray-500">&lt;div</span> <span class="text-red-400">id</span>=<span class="text-green-400">"passiton-donate-widget"</span><span class="text-gray-500">&gt;&lt;/div&gt;</span></div>
                         <div></div>
-                        <div><span class="text-gray-500">// Initialize widget:</span></div>
-                        <div><span class="text-yellow-400">createDonationWidget</span>({`{`}</div>
+                        <div><span class="text-gray-500">// Configure widget:</span></div>
+                        <div><span class="text-yellow-400">window.PassItOnConfig</span> = {`{`}</div>
                         <div>&nbsp;&nbsp;<span class="text-red-400">targetElementId</span>: <span class="text-green-400">'passiton-donate-widget'</span>,</div>
                         <div>&nbsp;&nbsp;<span class="text-red-400">organizationId</span>: <span class="text-green-400">'your-org-id'</span>,</div>
-                        <div>&nbsp;&nbsp;<span class="text-red-400">defaultAmount</span>: <span class="text-yellow-400">25</span></div>
-                        <div>{`});`}</div>
+                        <div>&nbsp;&nbsp;<span class="text-red-400">defaultAmount</span>: <span class="text-yellow-400">50</span>,</div>
+                        <div>&nbsp;&nbsp;<span class="text-red-400">buttonText</span>: <span class="text-green-400">'Donate Now'</span></div>
+                        <div>{`};`}</div>
                     </div>
                 </div>
             </div>
@@ -215,7 +220,7 @@
             </div>
             <div class="mt-8 md:mt-0 md:order-1">
                 <p class="text-center text-base text-gray-400">
-                    &copy; 2024 Second Chance Developer Sponsorship. Supporting justice-involved individuals.
+                    &copy; 2025 Banyan Labs. Supporting justice-involved individuals.
                 </p>
             </div>
         </div>

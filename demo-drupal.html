@@ -125,15 +125,19 @@
                 const button = document.getElementById('demo-btn-drupal');
                 container.style.display = 'block';
                 
-                // Initialize the PassItOn widget
-                if (window.createDonationWidget) {
-                    window.createDonationWidget({
-                        targetElementId: 'passiton-donate-widget-drupal',
-                        organizationId: 'demo-org',
-                        defaultAmount: 50,
-                        buttonText: 'Donate Now'
-                    });
-                }
+                // Configure and initialize the PassItOn widget
+                window.PassItOnConfig = {
+                    targetElementId: 'passiton-donate-widget-drupal',
+                    organizationId: 'demo-org',
+                    defaultAmount: 50,
+                    buttonText: 'Donate Now',
+                    color: '#667eea'
+                };
+                
+                // Reload the script to initialize with new config
+                const script = document.createElement('script');
+                script.src = 'https://donation-one-phi.vercel.app/embed.js';
+                document.head.appendChild(script);
                 
                 button.textContent = 'Widget Loaded!';
                 button.disabled = true;
@@ -158,11 +162,12 @@
                 <div><span style="color: #f687b3;">{{</span> <span style="color: #63b3ed;">attach_library</span>(<span style="color: #9ae6b4;">'your_theme/sponsorship-widget'</span>) <span style="color: #f687b3;">}}</span></div>
                 <div><span style="color: #cbd5e0;">&lt;div</span> <span style="color: #fbd38d;">id</span>=<span style="color: #9ae6b4;">"passiton-donate-widget"</span><span style="color: #cbd5e0;">&gt;&lt;/div&gt;</span></div>
                 <div></div>
-                <div><span style="color: #68d391;"># Initialize widget:</span></div>
-                <div><span style="color: #fbd38d;">createDonationWidget</span>({</div>
+                <div><span style="color: #68d391;"># Configure widget:</span></div>
+                <div><span style="color: #fbd38d;">window.PassItOnConfig</span> = {</div>
                 <div>&nbsp;&nbsp;<span style="color: #9ae6b4;">targetElementId: 'passiton-donate-widget'</span>,</div>
-                <div>&nbsp;&nbsp;<span style="color: #9ae6b4;">organizationId: 'your-org-id'</span></div>
-                <div>});</div>
+                <div>&nbsp;&nbsp;<span style="color: #9ae6b4;">organizationId: 'your-org-id'</span>,</div>
+                <div>&nbsp;&nbsp;<span style="color: #9ae6b4;">defaultAmount: 50</span></div>
+                <div>};</div>
                 <div></div>
                 <div><span style="color: #68d391;"># Or create a custom block plugin</span></div>
                 <div><span style="color: #f56565;">class</span> <span style="color: #fbd38d;">SponsorshipBlock</span> <span style="color: #f56565;">extends</span> <span style="color: #63b3ed;">BlockBase</span> {</div>
@@ -183,7 +188,7 @@
             <div class="footer-content">
                 <div class="footer-platform">Demo Platform: Drupal</div>
                 <div class="footer-copyright">
-                    &copy; 2024 Second Chance Developer Sponsorship. Supporting justice-involved individuals.
+                    &copy; 2025 Banyan Labs. Supporting justice-involved individuals.
                 </div>
             </div>
         </div>
