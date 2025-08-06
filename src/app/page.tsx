@@ -200,6 +200,72 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Integration Code Section */}
+      <div className="py-12 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gray-900 rounded-lg p-6 overflow-hidden min-h-0 max-h-96">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-white font-medium">
+                {selectedPlatform === 'nextjs' ? 'Next.js Integration' : 
+                 selectedPlatform === 'wordpress' ? 'WordPress Integration' : 
+                 'Drupal Integration'}
+              </h3>
+              <span className="text-gray-400 text-sm">
+                {selectedPlatform === 'nextjs' ? 'TypeScript + React' : 
+                 selectedPlatform === 'wordpress' ? 'PHP + HTML' : 
+                 'Twig + YAML'}
+              </span>
+            </div>
+            <div className="text-gray-300 font-mono text-sm space-y-1 max-h-64 overflow-y-auto leading-tight">
+              {selectedPlatform === 'nextjs' && (
+                <>
+                  <div><span className="text-blue-400">import</span> Script <span className="text-blue-400">from</span> <span className="text-green-400">'next/script'</span></div>
+                  <div></div>
+                  <div><span className="text-blue-400">export default function</span> <span className="text-yellow-400">Layout</span>() {`{`}</div>
+                  <div>&nbsp;&nbsp;<span className="text-blue-400">return</span> (</div>
+                  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-gray-500">&lt;Script</span> <span className="text-red-400">src</span>=<span className="text-green-400">"/widget/sponsorship-widget.js"</span> <span className="text-gray-500">/&gt;</span></div>
+                  <div>&nbsp;&nbsp;)</div>
+                  <div>{`}`}</div>
+                  <div></div>
+                  <div><span className="text-gray-500">// Use anywhere:</span></div>
+                  <div><span className="text-gray-500">&lt;div</span> <span className="text-red-400">data-sc-widget</span>=<span className="text-green-400">"sponsorship"</span> <span className="text-gray-500">/&gt;</span></div>
+                </>
+              )}
+              {selectedPlatform === 'wordpress' && (
+                <>
+                  <div><span className="text-blue-400">function</span> <span className="text-yellow-400">enqueue_sponsorship_widget</span>() {`{`}</div>
+                  <div>&nbsp;&nbsp;<span className="text-yellow-400">wp_enqueue_script</span>(</div>
+                  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-green-400">'sponsorship-widget'</span>,</div>
+                  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-yellow-400">get_template_directory_uri</span>() . <span className="text-green-400">'/js/sponsorship-widget.js'</span></div>
+                  <div>&nbsp;&nbsp;);</div>
+                  <div>{`}`}</div>
+                  <div><span className="text-yellow-400">add_action</span>(<span className="text-green-400">'wp_enqueue_scripts'</span>, <span className="text-green-400">'enqueue_sponsorship_widget'</span>);</div>
+                  <div></div>
+                  <div><span className="text-gray-500">// In templates:</span></div>
+                  <div><span className="text-gray-500">&lt;div</span> <span className="text-red-400">data-sc-widget</span>=<span className="text-green-400">"sponsorship"</span><span className="text-gray-500">&gt;&lt;/div&gt;</span></div>
+                </>
+              )}
+              {selectedPlatform === 'drupal' && (
+                <>
+                  <div><span className="text-gray-500"># In your_theme.libraries.yml</span></div>
+                  <div><span className="text-blue-400">sponsorship-widget</span>:</div>
+                  <div>&nbsp;&nbsp;<span className="text-blue-400">js</span>:</div>
+                  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-green-400">js/sponsorship-widget.js</span>: {`{}`}</div>
+                  <div></div>
+                  <div><span className="text-gray-500">// In .theme file:</span></div>
+                  <div><span className="text-blue-400">function</span> <span className="text-yellow-400">mytheme_preprocess_page</span>(&amp;$variables) {`{`}</div>
+                  <div>&nbsp;&nbsp;$variables[<span className="text-green-400">'#attached'</span>][<span className="text-green-400">'library'</span>][] = <span className="text-green-400">'mytheme/sponsorship-widget'</span>;</div>
+                  <div>{`}`}</div>
+                  <div></div>
+                  <div><span className="text-gray-500">// In templates:</span></div>
+                  <div><span className="text-gray-500">&lt;div</span> <span className="text-red-400">data-sc-widget</span>=<span className="text-green-400">"sponsorship"</span><span className="text-gray-500">&gt;&lt;/div&gt;</span></div>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Footer */}
       <footer className="bg-white">
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">

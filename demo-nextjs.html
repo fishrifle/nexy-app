@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Second Chance Developer Sponsorship - Next.js Demo</title>
+    <title>Sponsor a Developer - Next.js Demo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .gradient-bg {
@@ -35,8 +35,8 @@
                 <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
                     <div class="sm:text-center lg:text-left">
                         <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                            <span class="block xl:inline">Second Chance</span>
-                            <span class="block text-indigo-600 xl:inline">Developer Sponsorship</span>
+                            <span class="block xl:inline">Sponsor</span>
+                            <span class="block text-indigo-600 xl:inline">a Developer</span>
                         </h1>
                         <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                             Support justice-involved developers on their path to redemption and professional success. 
@@ -137,33 +137,74 @@
                     Embeddable Sponsorship Widget
                 </h2>
                 <p class="mt-4 text-lg text-gray-600">
-                    Platform: Next.js with React & TypeScript
+                    Platform: Next.js
                 </p>
             </div>
             
-            <!-- Widget Container -->
-            <div class="mt-8 max-w-md mx-auto">
+            <!-- Widget Container (Initially Hidden) -->
+            <div id="widget-container" class="mt-8 max-w-md mx-auto" style="display: none;">
                 <div id="passiton-donate-widget"></div>
             </div>
             
+            <!-- Demo Button -->
+            <div class="mt-8 text-center">
+                <button id="demo-btn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg" onclick="showWidget()">
+                    Sponsor a Developer
+                </button>
+                <p class="mt-2 text-sm text-gray-600">Click to test the widget functionality</p>
+            </div>
+            
+            <script>
+                function showWidget() {
+                    const container = document.getElementById('widget-container');
+                    const button = document.getElementById('demo-btn');
+                    container.style.display = 'block';
+                    
+                    // Configure and initialize the PassItOn widget
+                    window.PassItOnConfig = {
+                        targetElementId: 'passiton-donate-widget',
+                        defaultAmount: 50,
+                        buttonText: 'Donate Now',
+                        color: '#3b82f6'
+                    };
+                    
+                    // Reload the script to initialize with new config
+                    const script = document.createElement('script');
+                    script.src = 'https://donation-one-phi.vercel.app/embed.js';
+                    document.head.appendChild(script);
+                    
+                    button.textContent = 'Widget Loaded!';
+                    button.disabled = true;
+                    button.classList.add('opacity-50', 'cursor-not-allowed');
+                }
+            </script>
+            
             <!-- Integration Code Example -->
-            <div class="mt-12 max-w-4xl mx-auto">
-                <div class="bg-gray-900 rounded-lg p-6">
+            <div class="mt-8 max-w-4xl mx-auto">
+                <div class="bg-gray-900 rounded-lg p-6 max-h-96 overflow-hidden">
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="text-white font-medium">Next.js Integration</h3>
-                        <span class="text-gray-400 text-sm">TypeScript + React</span>
+                        <span class="text-gray-400 text-sm">React Framework</span>
                     </div>
-                    <div class="text-gray-300 font-mono text-sm space-y-2">
+                    <div class="text-gray-300 font-mono text-sm space-y-2 max-h-64 overflow-y-auto">
                         <div><span class="text-blue-400">import</span> Script <span class="text-blue-400">from</span> <span class="text-green-400">'next/script'</span></div>
                         <div></div>
                         <div><span class="text-blue-400">export default function</span> <span class="text-yellow-400">Layout</span>() {</div>
                         <div>&nbsp;&nbsp;<span class="text-blue-400">return</span> (</div>
-                        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-gray-500">&lt;Script</span> <span class="text-red-400">src</span>=<span class="text-green-400">"/widget/sponsorship-widget.js"</span> <span class="text-gray-500">/&gt;</span></div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-gray-500">&lt;Script</span> <span class="text-red-400">src</span>=<span class="text-green-400">"https://donation-one-phi.vercel.app/embed.js"</span> <span class="text-gray-500">/&gt;</span></div>
                         <div>&nbsp;&nbsp;)</div>
                         <div>}</div>
                         <div></div>
-                        <div><span class="text-gray-500">// Use anywhere:</span></div>
-                        <div><span class="text-gray-500">&lt;div</span> <span class="text-red-400">data-sc-widget</span>=<span class="text-green-400">"sponsorship"</span> <span class="text-gray-500">/&gt;</span></div>
+                        <div><span class="text-gray-500">// Add widget container:</span></div>
+                        <div><span class="text-gray-500">&lt;div</span> <span class="text-red-400">id</span>=<span class="text-green-400">"passiton-donate-widget"</span><span class="text-gray-500">&gt;&lt;/div&gt;</span></div>
+                        <div></div>
+                        <div><span class="text-gray-500">// Configure widget:</span></div>
+                        <div><span class="text-yellow-400">window.PassItOnConfig</span> = {`{`}</div>
+                        <div>&nbsp;&nbsp;<span class="text-red-400">targetElementId</span>: <span class="text-green-400">'passiton-donate-widget'</span>,</div>
+                        <div>&nbsp;&nbsp;<span class="text-red-400">organizationId</span>: <span class="text-green-400">'your-org-id'</span>,</div>
+                        <div>&nbsp;&nbsp;<span class="text-red-400">defaultAmount</span>: <span class="text-yellow-400">50</span>,</div>
+                        <div>&nbsp;&nbsp;<span class="text-red-400">buttonText</span>: <span class="text-green-400">'Donate Now'</span></div>
+                        <div>{`};`}</div>
                     </div>
                 </div>
             </div>
@@ -178,19 +219,13 @@
             </div>
             <div class="mt-8 md:mt-0 md:order-1">
                 <p class="text-center text-base text-gray-400">
-                    &copy; 2024 Second Chance Developer Sponsorship. Supporting justice-involved individuals.
+                    &copy; 2025 Banyan Labs. Supporting justice-involved individuals.
                 </p>
             </div>
         </div>
     </footer>
 
-    <!-- Configure and load the widget -->
-    <script>
-        window.PassItOnConfig = {
-            defaultAmount: 50,
-            buttonText: 'Sponsor a Developer'
-        };
-    </script>
-    <script src="/widget/passiton-embed.js"></script>
+    <!-- Load the PassItOn widget -->
+    <script src="https://donation-one-phi.vercel.app/embed.js"></script>
 </body>
 </html>

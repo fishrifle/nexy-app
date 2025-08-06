@@ -118,28 +118,70 @@
                 <p class="platform-indicator">Platform: WordPress</p>
             </div>
             
-            <div style="max-width: 500px; margin: 0 auto 40px;">
-                <div id="passiton-donate-widget"></div>
+            <div id="widget-container-wp" style="max-width: 500px; margin: 0 auto 40px; display: none;">
+                <div id="passiton-donate-widget-wp"></div>
             </div>
             
+            <!-- Demo Button -->
+            <div style="text-align: center; margin: 32px auto;">
+                <button id="demo-btn-wp" onclick="showWidgetWP()" style="background: #7c3aed; color: white; font-weight: bold; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px;">
+                    Sponsor a Developer
+                </button>
+                <p style="margin-top: 8px; font-size: 14px; color: #666;">Click to test the widget functionality</p>
+            </div>
+            
+            <script>
+                function showWidgetWP() {
+                    const container = document.getElementById('widget-container-wp');
+                    const button = document.getElementById('demo-btn-wp');
+                    container.style.display = 'block';
+                    
+                    // Configure and initialize the PassItOn widget
+                    window.PassItOnConfig = {
+                        targetElementId: 'passiton-donate-widget-wp',
+                        defaultAmount: 50,
+                        buttonText: 'Donate Now',
+                        color: '#7c3aed'
+                    };
+                    
+                    // Reload the script to initialize with new config
+                    const script = document.createElement('script');
+                    script.src = 'https://donation-one-phi.vercel.app/embed.js';
+                    document.head.appendChild(script);
+                    
+                    button.textContent = 'Widget Loaded!';
+                    button.disabled = true;
+                    button.style.opacity = '0.5';
+                    button.style.cursor = 'not-allowed';
+                }
+            </script>
+            
             <!-- Integration Code Example -->
-            <div style="max-width: 800px; margin: 0 auto; background: #2d3748; border-radius: 12px; padding: 24px; color: #e2e8f0; font-family: 'Monaco', monospace; font-size: 14px;">
+            <div style="max-width: 800px; max-height: 384px; margin: 0 auto; background: #2d3748; border-radius: 12px; padding: 24px; color: #e2e8f0; font-family: 'Monaco', monospace; font-size: 14px; overflow: hidden;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
                     <h3 style="color: white; margin: 0; font-size: 16px;">WordPress Integration</h3>
                     <span style="color: #a0aec0; font-size: 12px;">PHP + WordPress Hooks</span>
                 </div>
                 <div style="line-height: 1.6;">
                     <div><span style="color: #68d391;">// functions.php</span></div>
-                    <div><span style="color: #f56565;">function</span> <span style="color: #fbd38d;">enqueue_sponsorship_widget</span>() {</div>
+                    <div><span style="color: #f56565;">function</span> <span style="color: #fbd38d;">enqueue_passiton_widget</span>() {</div>
                     <div>&nbsp;&nbsp;<span style="color: #63b3ed;">wp_enqueue_script</span>(</div>
-                    <div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #9ae6b4;">'sponsorship-widget'</span>,</div>
-                    <div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #63b3ed;">get_template_directory_uri</span>() . <span style="color: #9ae6b4;">'/js/widget.js'</span></div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #9ae6b4;">'passiton-widget'</span>,</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #9ae6b4;">'https://donation-one-phi.vercel.app/embed.js'</span>,</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;[], <span style="color: #9ae6b4;">'1.0'</span>, <span style="color: #fbd38d;">true</span></div>
                     <div>&nbsp;&nbsp;);</div>
                     <div>}</div>
-                    <div><span style="color: #63b3ed;">add_action</span>(<span style="color: #9ae6b4;">'wp_enqueue_scripts'</span>, <span style="color: #9ae6b4;">'enqueue_sponsorship_widget'</span>);</div>
+                    <div><span style="color: #63b3ed;">add_action</span>(<span style="color: #9ae6b4;">'wp_enqueue_scripts'</span>, <span style="color: #9ae6b4;">'enqueue_passiton_widget'</span>);</div>
                     <div></div>
-                    <div><span style="color: #68d391;">// Use shortcode: [sponsorship_widget amount="50"]</span></div>
-                    <div><span style="color: #68d391;">// Or in templates: &lt;div data-sc-widget="sponsorship"&gt;&lt;/div&gt;</span></div>
+                    <div><span style="color: #68d391;">// Add widget container:</span></div>
+                    <div><span style="color: #68d391;">&lt;div id="passiton-donate-widget"&gt;&lt;/div&gt;</span></div>
+                    <div></div>
+                    <div><span style="color: #68d391;">// Configure widget:</span></div>
+                    <div><span style="color: #fbd38d;">window.PassItOnConfig</span> = {</div>
+                    <div>&nbsp;&nbsp;<span style="color: #9ae6b4;">targetElementId: 'passiton-donate-widget'</span>,</div>
+                    <div>&nbsp;&nbsp;<span style="color: #9ae6b4;">organizationId: 'your-org-id'</span>,</div>
+                    <div>&nbsp;&nbsp;<span style="color: #9ae6b4;">defaultAmount: 50</span></div>
+                    <div>};</div>
                 </div>
             </div>
         </div>
@@ -151,7 +193,7 @@
             <div class="footer-content">
                 <div class="footer-platform">Demo Platform: WordPress</div>
                 <div class="footer-copyright">
-                    &copy; 2024 Second Chance Developer Sponsorship. Supporting justice-involved individuals.
+                    &copy; 2025 Banyan Labs. Supporting justice-involved individuals.
                 </div>
             </div>
         </div>
@@ -181,13 +223,7 @@
     }
     </script>
 
-    <!-- Configure and load the widget -->
-    <script>
-        window.PassItOnConfig = {
-            defaultAmount: 50,
-            buttonText: 'Sponsor a Developer'
-        };
-    </script>
-    <script src="/widget/passiton-embed.js"></script>
+    <!-- Load the widget -->
+    <script src="https://donation-one-phi.vercel.app/embed.js"></script>
 </body>
 </html>

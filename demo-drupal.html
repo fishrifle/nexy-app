@@ -107,12 +107,46 @@
             <p class="platform-indicator">Platform: Drupal</p>
         </div>
         
-        <div style="max-width: 500px; margin: 0 auto 50px;">
-            <div id="passiton-donate-widget"></div>
+        <div id="widget-container-drupal" style="max-width: 500px; margin: 0 auto 50px; display: none;">
+            <div id="passiton-donate-widget-drupal"></div>
         </div>
         
+        <!-- Demo Button -->
+        <div style="text-align: center; margin: 32px auto;">
+            <button id="demo-btn-drupal" onclick="showWidgetDrupal()" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-weight: bold; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
+                Sponsor a Developer
+            </button>
+            <p style="margin-top: 8px; font-size: 14px; color: #666;">Click to test the widget functionality</p>
+        </div>
+        
+        <script>
+            function showWidgetDrupal() {
+                const container = document.getElementById('widget-container-drupal');
+                const button = document.getElementById('demo-btn-drupal');
+                container.style.display = 'block';
+                
+                // Configure and initialize the PassItOn widget
+                window.PassItOnConfig = {
+                    targetElementId: 'passiton-donate-widget-drupal',
+                    defaultAmount: 50,
+                    buttonText: 'Donate Now',
+                    color: '#667eea'
+                };
+                
+                // Reload the script to initialize with new config
+                const script = document.createElement('script');
+                script.src = 'https://donation-one-phi.vercel.app/embed.js';
+                document.head.appendChild(script);
+                
+                button.textContent = 'Widget Loaded!';
+                button.disabled = true;
+                button.style.opacity = '0.5';
+                button.style.cursor = 'not-allowed';
+            }
+        </script>
+        
         <!-- Integration Code Example -->
-        <div style="max-width: 900px; margin: 0 auto; background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%); border-radius: 16px; padding: 32px; color: #e2e8f0; font-family: 'Monaco', monospace; font-size: 14px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);">
+        <div style="max-width: 900px; max-height: 400px; margin: 0 auto; background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%); border-radius: 16px; padding: 32px; color: #e2e8f0; font-family: 'Monaco', monospace; font-size: 14px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); overflow: hidden;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                 <h3 style="color: white; margin: 0; font-size: 18px; font-weight: 700;">Drupal Integration</h3>
                 <span style="color: #a0aec0; font-size: 13px; background: rgba(255, 255, 255, 0.1); padding: 4px 8px; border-radius: 4px;">Twig + JavaScript</span>
@@ -121,11 +155,18 @@
                 <div><span style="color: #68d391;"># your_theme.libraries.yml</span></div>
                 <div><span style="color: #fbd38d;">sponsorship-widget</span>:</div>
                 <div>&nbsp;&nbsp;<span style="color: #63b3ed;">js</span>:</div>
-                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #9ae6b4;">js/sponsorship-widget.js</span>: {}</div>
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #9ae6b4;">https://donation-one-phi.vercel.app/embed.js</span>: {}</div>
                 <div></div>
                 <div><span style="color: #68d391;"># In your template:</span></div>
                 <div><span style="color: #f687b3;">{{</span> <span style="color: #63b3ed;">attach_library</span>(<span style="color: #9ae6b4;">'your_theme/sponsorship-widget'</span>) <span style="color: #f687b3;">}}</span></div>
-                <div><span style="color: #cbd5e0;">&lt;div</span> <span style="color: #fbd38d;">data-sc-widget</span>=<span style="color: #9ae6b4;">"sponsorship"</span><span style="color: #cbd5e0;">&gt;&lt;/div&gt;</span></div>
+                <div><span style="color: #cbd5e0;">&lt;div</span> <span style="color: #fbd38d;">id</span>=<span style="color: #9ae6b4;">"passiton-donate-widget"</span><span style="color: #cbd5e0;">&gt;&lt;/div&gt;</span></div>
+                <div></div>
+                <div><span style="color: #68d391;"># Configure widget:</span></div>
+                <div><span style="color: #fbd38d;">window.PassItOnConfig</span> = {</div>
+                <div>&nbsp;&nbsp;<span style="color: #9ae6b4;">targetElementId: 'passiton-donate-widget'</span>,</div>
+                <div>&nbsp;&nbsp;<span style="color: #9ae6b4;">organizationId: 'your-org-id'</span>,</div>
+                <div>&nbsp;&nbsp;<span style="color: #9ae6b4;">defaultAmount: 50</span></div>
+                <div>};</div>
                 <div></div>
                 <div><span style="color: #68d391;"># Or create a custom block plugin</span></div>
                 <div><span style="color: #f56565;">class</span> <span style="color: #fbd38d;">SponsorshipBlock</span> <span style="color: #f56565;">extends</span> <span style="color: #63b3ed;">BlockBase</span> {</div>
@@ -146,7 +187,7 @@
             <div class="footer-content">
                 <div class="footer-platform">Demo Platform: Drupal</div>
                 <div class="footer-copyright">
-                    &copy; 2024 Second Chance Developer Sponsorship. Supporting justice-involved individuals.
+                    &copy; 2025 Banyan Labs. Supporting justice-involved individuals.
                 </div>
             </div>
         </div>
@@ -203,13 +244,7 @@
     });
     </script>
 
-    <!-- Configure and load the widget -->
-    <script>
-        window.PassItOnConfig = {
-            defaultAmount: 50,
-            buttonText: 'Sponsor a Developer'
-        };
-    </script>
-    <script src="/widget/passiton-embed.js"></script>
+    <!-- Load the widget -->
+    <script src="https://donation-one-phi.vercel.app/embed.js"></script>
 </body>
 </html>
