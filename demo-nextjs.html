@@ -143,7 +143,7 @@
             
             <!-- Widget Container -->
             <div class="mt-8 max-w-md mx-auto">
-                <div data-sc-widget="sponsorship" data-amount="50"></div>
+                <div id="passiton-donate-widget"></div>
             </div>
             
             <!-- Integration Code Example -->
@@ -184,7 +184,13 @@
         </div>
     </footer>
 
-    <!-- Load the widget -->
-    <script src="/widget/sponsorship-widget.js"></script>
+    <!-- Configure and load the widget -->
+    <script>
+        window.PassItOnConfig = {
+            defaultAmount: 50,
+            buttonText: 'Sponsor a Developer'
+        };
+    </script>
+    <script src="/widget/passiton-embed.js"></script>
 </body>
 </html>

@@ -119,7 +119,7 @@
             </div>
             
             <div style="max-width: 500px; margin: 0 auto 40px;">
-                <div data-sc-widget="sponsorship" data-amount="50"></div>
+                <div id="passiton-donate-widget"></div>
             </div>
             
             <!-- Integration Code Example -->
@@ -181,7 +181,13 @@
     }
     </script>
 
-    <!-- Load the widget -->
-    <script src="/widget/sponsorship-widget.js"></script>
+    <!-- Configure and load the widget -->
+    <script>
+        window.PassItOnConfig = {
+            defaultAmount: 50,
+            buttonText: 'Sponsor a Developer'
+        };
+    </script>
+    <script src="/widget/passiton-embed.js"></script>
 </body>
 </html>

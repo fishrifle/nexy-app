@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sponsorship Widget Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8fafc;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .header {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            color: #718096;
+        }
+        
+        .nav-back {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-back:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+        
+        .doc-section {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .doc-section h2 {
+            color: #2d3748;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .doc-section h3 {
+            color: #4a5568;
+            margin: 30px 0 15px;
+            font-size: 1.3rem;
+        }
+        
+        .code-block {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 14px;
+        }
+        
+        .config-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .config-table th,
+        .config-table td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .config-table th {
+            background: #f7fafc;
+            font-weight: 600;
+            color: #2d3748;
+        }
+        
+        .config-table code {
+            background: #edf2f7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="nav-back">← Back to Demo Home</a>
+        
+        <div class="header">
+            <h1>📚 Widget Documentation</h1>
+            <p>Complete guide to implementing the Second Chance Developer Sponsorship Widget</p>
+        </div>
+
+        <div class="doc-section">
+            <h2>🚀 Quick Start</h2>
+            <p>Get up and running with the sponsorship widget in under 5 minutes:</p>
+            
+            <h3>1. Include the Script</h3>
+            <div class="code-block">&lt;script src="/widget/passiton-embed.js"&gt;&lt;/script&gt;</div>
+            
+            <h3>2. Add the Widget</h3>
+            <div class="code-block">&lt;div id="passiton-donate-widget"&gt;&lt;/div&gt;</div>
+            
+            <h3>3. Configure (Optional)</h3>
+            <div class="code-block">window.PassItOnConfig = {
+    defaultAmount: 50,
+    buttonText: 'Sponsor a Developer',
+    color: '#3b82f6',
+    position: 'bottom-right'
+};</div>
+        </div>
+
+        <div class="doc-section">
+            <h2>⚙️ Configuration Options</h2>
+            <p>Customize the widget behavior and appearance:</p>
+            
+            <table class="config-table">
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>targetElementId</code></td>
+                        <td>string</td>
+                        <td>passiton-donate-widget</td>
+                        <td>ID of the element where widget will be rendered</td>
+                    </tr>
+                    <tr>
+                        <td><code>organizationId</code></td>
+                        <td>string</td>
+                        <td>''</td>
+                        <td>Your organization identifier</td>
+                    </tr>
+                    <tr>
+                        <td><code>defaultAmount</code></td>
+                        <td>number</td>
+                        <td>25</td>
+                        <td>Default donation amount in dollars</td>
+                    </tr>
+                    <tr>
+                        <td><code>color</code></td>
+                        <td>string</td>
+                        <td>#3b82f6</td>
+                        <td>Primary color for the widget theme</td>
+                    </tr>
+                    <tr>
+                        <td><code>buttonText</code></td>
+                        <td>string</td>
+                        <td>Donate</td>
+                        <td>Text displayed on the main button</td>
+                    </tr>
+                    <tr>
+                        <td><code>position</code></td>
+                        <td>string</td>
+                        <td>bottom-left</td>
+                        <td>Widget position: bottom-left, bottom-right, top-left, top-right</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="doc-section">
+            <h2>🎨 Platform Examples</h2>
+            
+            <h3>Next.js Integration</h3>
+            <div class="code-block">import Script from 'next/script'
+
+export default function Layout({ children }) {
+  return (
+    &lt;html&gt;
+      &lt;body&gt;
+        {children}
+        &lt;Script&gt;{`
+          window.PassItOnConfig = {
+            defaultAmount: 50,
+            buttonText: 'Support Developers'
+          };
+        `}&lt;/Script&gt;
+        &lt;Script src="/widget/passiton-embed.js" /&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  )
+}</div>
+            
+            <h3>WordPress Integration</h3>
+            <div class="code-block">// In functions.php
+function enqueue_sponsorship_widget() {
+    wp_enqueue_script(
+        'passiton-widget',
+        get_template_directory_uri() . '/js/passiton-embed.js',
+        array(),
+        '1.0.0',
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'enqueue_sponsorship_widget');
+
+// Create shortcode
+function sponsorship_widget_shortcode($atts) {
+    $atts = shortcode_atts(array(
+        'amount' => 25,
+        'text' => 'Donate Now'
+    ), $atts);
+    
+    return '&lt;div id="passiton-donate-widget"&gt;&lt;/div&gt;
+            &lt;script&gt;
+                window.PassItOnConfig = {
+                    defaultAmount: ' . $atts['amount'] . ',
+                    buttonText: "' . $atts['text'] . '"
+                };
+            &lt;/script&gt;';
+}
+add_shortcode('sponsorship_widget', 'sponsorship_widget_shortcode');</div>
+            
+            <h3>Drupal Integration</h3>
+            <div class="code-block"># In your_theme.libraries.yml
+sponsorship-widget:
+  js:
+    js/passiton-embed.js: {}
+
+# In your template
+{{ attach_library('your_theme/sponsorship-widget') }}
+&lt;div id="passiton-donate-widget"&gt;&lt;/div&gt;</div>
+        </div>
+
+        <div class="doc-section">
+            <h2>🔧 Advanced Usage</h2>
+            
+            <h3>Multiple Widgets</h3>
+            <p>You can have multiple widgets on the same page:</p>
+            <div class="code-block">&lt;div id="widget-header"&gt;&lt;/div&gt;
+&lt;div id="widget-sidebar"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+// Initialize first widget
+PassItOnWidget.init({
+    targetElementId: 'widget-header',
+    defaultAmount: 25,
+    buttonText: 'Quick Donation'
+});
+
+// Initialize second widget
+PassItOnWidget.init({
+    targetElementId: 'widget-sidebar',
+    defaultAmount: 100,
+    buttonText: 'Major Gift',
+    color: '#10b981'
+});
+&lt;/script&gt;</div>
+            
+            <h3>Event Handling</h3>
+            <p>Listen for widget events:</p>
+            <div class="code-block">window.addEventListener('message', function(event) {
+    if (event.origin !== 'https://donation-one-phi.vercel.app') return;
+    
+    switch(event.data.type) {
+        case 'donation_complete':
+            console.log('Donation completed!', event.data);
+            // Track analytics, show thank you message, etc.
+            break;
+        case 'close_modal':
+            console.log('Widget closed');
+            break;
+    }
+});</div>
+        </div>
+
+        <div class="doc-section">
+            <h2>🛠️ Troubleshooting</h2>
+            
+            <h3>Widget Not Appearing</h3>
+            <ul>
+                <li>Ensure the script is loaded before DOM content</li>
+                <li>Check that the target element ID exists</li>
+                <li>Verify there are no JavaScript errors in console</li>
+            </ul>
+            
+            <h3>Styling Issues</h3>
+            <ul>
+                <li>Widget uses high z-index (9999) for positioning</li>
+                <li>Modal overlay has z-index 10000</li>
+                <li>Customize colors using the <code>color</code> config option</li>
+            </ul>
+            
+            <h3>HTTPS Requirements</h3>
+            <ul>
+                <li>Widget requires HTTPS for payment processing</li>
+                <li>Cross-origin messaging works only with secure contexts</li>
+            </ul>
+        </div>
+
+        <div class="doc-section">
+            <h2>📞 Support</h2>
+            <p>Need help? Here's how to get support:</p>
+            <ul>
+                <li><strong>Documentation:</strong> Review this guide and examples</li>
+                <li><strong>Widget Examples:</strong> <a href="/widget-examples">View live examples</a></li>
+                <li><strong>Platform Demos:</strong> <a href="/">Try platform-specific demos</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

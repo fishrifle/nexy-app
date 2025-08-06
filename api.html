@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sponsorship Widget API Reference</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8fafc;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .header {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            color: #718096;
+        }
+        
+        .nav-back {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-back:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+        
+        .api-section {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .api-section h2 {
+            color: #2d3748;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .api-section h3 {
+            color: #4a5568;
+            margin: 30px 0 15px;
+            font-size: 1.3rem;
+        }
+        
+        .endpoint {
+            background: #edf2f7;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+        
+        .method {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-right: 10px;
+        }
+        
+        .method.get { background: #10b981; }
+        .method.post { background: #3b82f6; }
+        .method.put { background: #f59e0b; }
+        .method.delete { background: #ef4444; }
+        
+        .code-block {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 14px;
+        }
+        
+        .param-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .param-table th,
+        .param-table td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .param-table th {
+            background: #f7fafc;
+            font-weight: 600;
+            color: #2d3748;
+        }
+        
+        .param-table code {
+            background: #edf2f7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        
+        .response-example {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        
+        .status-success { background: #d1fae5; color: #065f46; }
+        .status-error { background: #fee2e2; color: #991b1b; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="nav-back">← Back to Demo Home</a>
+        
+        <div class="header">
+            <h1>⚡ API Reference</h1>
+            <p>Complete API documentation for the Second Chance Developer Sponsorship platform</p>
+        </div>
+
+        <div class="api-section">
+            <h2>🔗 Base URL</h2>
+            <div class="code-block">https://donation-one-phi.vercel.app/api</div>
+            <p>All API endpoints are relative to this base URL and require HTTPS.</p>
+        </div>
+
+        <div class="api-section">
+            <h2>🔐 Authentication</h2>
+            <p>API requests require authentication using an API key in the request headers:</p>
+            <div class="code-block">Authorization: Bearer YOUR_API_KEY
+Content-Type: application/json</div>
+            <p><strong>Note:</strong> Contact support to obtain your API key for production use.</p>
+        </div>
+
+        <div class="api-section">
+            <h2>💰 Donations API</h2>
+            
+            <div class="endpoint">
+                <h3>
+                    <span class="method post">POST</span>
+                    Create Donation Intent
+                </h3>
+                <p><code>/donations/create</code></p>
+                <p>Creates a new donation intent for processing payments.</p>
+            </div>
+            
+            <h3>Request Parameters</h3>
+            <table class="param-table">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>amount</code></td>
+                        <td>number</td>
+                        <td>Yes</td>
+                        <td>Donation amount in USD (minimum $5)</td>
+                    </tr>
+                    <tr>
+                        <td><code>currency</code></td>
+                        <td>string</td>
+                        <td>No</td>
+                        <td>Currency code (default: "usd")</td>
+                    </tr>
+                    <tr>
+                        <td><code>donor_email</code></td>
+                        <td>string</td>
+                        <td>Yes</td>
+                        <td>Donor's email address</td>
+                    </tr>
+                    <tr>
+                        <td><code>donor_name</code></td>
+                        <td>string</td>
+                        <td>No</td>
+                        <td>Donor's full name</td>
+                    </tr>
+                    <tr>
+                        <td><code>organization_id</code></td>
+                        <td>string</td>
+                        <td>No</td>
+                        <td>Target organization identifier</td>
+                    </tr>
+                    <tr>
+                        <td><code>recurring</code></td>
+                        <td>boolean</td>
+                        <td>No</td>
+                        <td>Whether this is a recurring donation</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Example Request</h3>
+            <div class="code-block">POST /api/donations/create
+Content-Type: application/json
+Authorization: Bearer YOUR_API_KEY
+
+{
+  "amount": 50,
+  "currency": "usd",
+  "donor_email": "supporter@example.com",
+  "donor_name": "John Doe",
+  "organization_id": "org_123",
+  "recurring": false
+}</div>
+            
+            <h3>Response</h3>
+            <div class="response-example">
+                <span class="status-badge status-success">200 OK</span>
+                <div class="code-block">{
+  "success": true,
+  "donation_id": "don_abc123",
+  "client_secret": "pi_1234567890_secret_xyz",
+  "amount": 50,
+  "currency": "usd",
+  "status": "requires_payment_method"
+}</div>
+            </div>
+        </div>
+
+        <div class="api-section">
+            <div class="endpoint">
+                <h3>
+                    <span class="method get">GET</span>
+                    Get Donation Status
+                </h3>
+                <p><code>/donations/{donation_id}</code></p>
+                <p>Retrieve the current status of a donation.</p>
+            </div>
+            
+            <h3>Example Request</h3>
+            <div class="code-block">GET /api/donations/don_abc123
+Authorization: Bearer YOUR_API_KEY</div>
+            
+            <h3>Response</h3>
+            <div class="response-example">
+                <span class="status-badge status-success">200 OK</span>
+                <div class="code-block">{
+  "success": true,
+  "donation_id": "don_abc123",
+  "amount": 50,
+  "currency": "usd",
+  "status": "succeeded",
+  "donor_email": "supporter@example.com",
+  "created_at": "2024-01-15T10:30:00Z",
+  "completed_at": "2024-01-15T10:32:15Z"
+}</div>
+            </div>
+        </div>
+
+        <div class="api-section">
+            <h2>👥 Organizations API</h2>
+            
+            <div class="endpoint">
+                <h3>
+                    <span class="method get">GET</span>
+                    List Organizations
+                </h3>
+                <p><code>/organizations</code></p>
+                <p>Get a list of organizations available for sponsorship.</p>
+            </div>
+            
+            <h3>Response</h3>
+            <div class="response-example">
+                <span class="status-badge status-success">200 OK</span>
+                <div class="code-block">{
+  "success": true,
+  "organizations": [
+    {
+      "id": "org_123",
+      "name": "Second Chance Developers",
+      "description": "Supporting justice-involved individuals in tech careers",
+      "logo_url": "https://example.com/logo.png",
+      "website": "https://secondchancedev.org",
+      "total_raised": 25000,
+      "active_developers": 15
+    }
+  ],
+  "total_count": 1
+}</div>
+            </div>
+        </div>
+
+        <div class="api-section">
+            <h2>📊 Analytics API</h2>
+            
+            <div class="endpoint">
+                <h3>
+                    <span class="method get">GET</span>
+                    Donation Analytics
+                </h3>
+                <p><code>/analytics/donations</code></p>
+                <p>Get donation statistics and analytics data.</p>
+            </div>
+            
+            <h3>Query Parameters</h3>
+            <table class="param-table">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>start_date</code></td>
+                        <td>string</td>
+                        <td>Start date (ISO format: 2024-01-01)</td>
+                    </tr>
+                    <tr>
+                        <td><code>end_date</code></td>
+                        <td>string</td>
+                        <td>End date (ISO format: 2024-01-31)</td>
+                    </tr>
+                    <tr>
+                        <td><code>organization_id</code></td>
+                        <td>string</td>
+                        <td>Filter by organization</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="api-section">
+            <h2>🔔 Webhooks</h2>
+            <p>Configure webhooks to receive real-time updates about donation events.</p>
+            
+            <h3>Supported Events</h3>
+            <ul>
+                <li><code>donation.created</code> - New donation initiated</li>
+                <li><code>donation.succeeded</code> - Payment completed successfully</li>
+                <li><code>donation.failed</code> - Payment failed</li>
+                <li><code>donation.refunded</code> - Donation was refunded</li>
+            </ul>
+            
+            <h3>Webhook Payload Example</h3>
+            <div class="code-block">{
+  "event_type": "donation.succeeded",
+  "event_id": "evt_abc123",
+  "created_at": "2024-01-15T10:32:15Z",
+  "data": {
+    "donation_id": "don_abc123",
+    "amount": 50,
+    "currency": "usd",
+    "donor_email": "supporter@example.com",
+    "organization_id": "org_123"
+  }
+}</div>
+            
+            <h3>Webhook Security</h3>
+            <p>All webhook requests include a signature header for verification:</p>
+            <div class="code-block">X-Webhook-Signature: sha256=1234567890abcdef...</div>
+        </div>
+
+        <div class="api-section">
+            <h2>❌ Error Handling</h2>
+            <p>The API uses conventional HTTP status codes and returns detailed error information:</p>
+            
+            <div class="response-example">
+                <span class="status-badge status-error">400 Bad Request</span>
+                <div class="code-block">{
+  "success": false,
+  "error": {
+    "code": "invalid_amount",
+    "message": "Donation amount must be at least $5.00",
+    "details": {
+      "minimum_amount": 5,
+      "provided_amount": 2
+    }
+  }
+}</div>
+            </div>
+            
+            <h3>Common Error Codes</h3>
+            <ul>
+                <li><code>invalid_api_key</code> - API key is missing or invalid</li>
+                <li><code>invalid_amount</code> - Donation amount is below minimum</li>
+                <li><code>invalid_email</code> - Email format is invalid</li>
+                <li><code>organization_not_found</code> - Specified organization doesn't exist</li>
+                <li><code>rate_limit_exceeded</code> - Too many requests</li>
+            </ul>
+        </div>
+
+        <div class="api-section">
+            <h2>🚀 Rate Limiting</h2>
+            <p>API requests are rate limited to ensure fair usage:</p>
+            <ul>
+                <li><strong>Standard:</strong> 100 requests per minute</li>
+                <li><strong>Burst:</strong> 1000 requests per hour</li>
+            </ul>
+            <p>Rate limit headers are included in all responses:</p>
+            <div class="code-block">X-RateLimit-Limit: 100
+X-RateLimit-Remaining: 95
+X-RateLimit-Reset: 1705320000</div>
+        </div>
+
+        <div class="api-section">
+            <h2>📝 Testing</h2>
+            <p>Use these test values for development and testing:</p>
+            
+            <h3>Test API Key</h3>
+            <div class="code-block">test_api_key_1234567890</div>
+            
+            <h3>Test Organization ID</h3>
+            <div class="code-block">test_org_demo</div>
+            
+            <h3>Test Amounts</h3>
+            <ul>
+                <li><strong>$5.00</strong> - Always succeeds</li>
+                <li><strong>$10.00</strong> - Simulates processing delay</li>
+                <li><strong>$15.00</strong> - Always fails with card_declined</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
